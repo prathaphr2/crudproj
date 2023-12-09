@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'cdnlines.html '%}
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead class="table table-primary">
+            <tr>
+                <th>Firstname</th>
+                <th>lastname</th>
+                <th>email</th>
+                <th>mobile</th>
+                <th>marks1</th>
+                <th>marks2</th>
+                <th>marks3</th>
+                <th>marks4</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in sd %} 
+            <tr>
+                <td>{{s.fname}}</td>
+                <td>{{s.lname}}</td>
+                <td>{{s.email}}</td>
+                <td>{{s.mobile}}</td>
+                <td>{{s.marks1}}</td>
+                <td>{{s.marks2}}</td>
+                <td>{{s.marks3}}</td>
+                <td>{{s.marks4}}</td>
+                <td>
+                    <a href="{% url 'update_data' s.id %}" class="btn btn-warning">update</a> 
+                    <a href="{% url 'delete_data' s.id %}" class="btn btn-danger">delete</a> 
+                </td>
+            </tr>
+            {% endfor %} 
+        </tbody> 
+    </table>
+    <a href="{% url 'studentregister' %}" class="btn btn-primary">Add Student</a>            
+
+</body>
+</html>
